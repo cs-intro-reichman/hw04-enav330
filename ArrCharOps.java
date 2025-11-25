@@ -42,20 +42,18 @@ public class ArrCharOps {
     /** If the two arrays have the same value in every index, 
      *  returns true; Otherwise returns false.
      */
-    public static boolean equals(char[] arr1, char[] arr2) {
         // Replace the following statement with your code
-    for(int i=0; i<arr1.length;i++){
-        for(int j=0; j<arr2.length;j++)
-        {
-            if(arr1[i] == arr2[j]){
-                 return true;
-
+    public static boolean equals(char[] arr1, char[] arr2) {
+        if (arr1.length != arr2.length) {
+            return false;
+        }
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] != arr2[i]) {
+                return false; 
             }
-
-        }}
-    
-        return false;
-    }
+        }
+        return true;
+        }
 
     /** Returns the index within the given array of the first occurrence of the given character.
      *  If no such character is found, returns -1.
@@ -84,8 +82,8 @@ public class ArrCharOps {
      *  If no such character is found, returns -1.
      */
     public static int lastIndexOf(char[] arr, char ch) {
-        for(int i=arr.length -1;i<arr.length;i--){
-            if (arr[i] == ch){
+        for (int i = arr.length - 1; i >= 0; i--) { 
+            if (arr[i] == ch) {
                 return i;
             }
         }
@@ -114,8 +112,8 @@ public class ArrCharOps {
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
         char[] arr2 = new char[endIndex - beginIndex];
-        for(int i=beginIndex;i<endIndex;i++){
-        arr[i] = arr2[i-beginIndex];
+        for (int i = 0; i < arr2.length; i++) {
+            arr2[i] = arr[beginIndex + i]; 
         }
         return arr2;
     }
