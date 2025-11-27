@@ -17,10 +17,34 @@ public class KeywordsDetector {
         String[] keywords = {"synergy", "disrupt", "leverage", "Paradigm", "transform"};
         detectAndPrint(sentences, keywords);
     }
+        public static String lowerCase(String var0) {
+        String var1 = "";
 
+        for(int var2 = 0; var2 < var0.length(); ++var2) {
+         char var3 = var0.charAt(var2);
+         if (var3 >= 'A' && var3 <= 'Z') {
+            var3 = (char)(var3 + 32);
+         }
+
+         var1 = var1 + var3;
+      }
+
+      return var1;
+   }
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
+        for (int i = 0; i < sentences.length; i++) {
+            String sentence = sentences[i];
+            for (int j = 0; j < keywords.length; j++) {
+                String keyword = keywords[j];
+                String sentenceLow = lowerCase(sentence);
+                String keywordLow = lowerCase(keyword);
+                if (MyString.contains(sentenceLow, keywordLow)) {
+                    System.out.println(sentence);
+                    break; 
+                }
+            }
+        }
     }
-}
+    }
